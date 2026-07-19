@@ -15,7 +15,7 @@ st.title("東京の天気予報 ☀️")
 # APIからデータを取得する関数
 async def get_weather_data():
     # URLには降水確率を含めない（エラー回避のため）
-    url = "https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&current=temperature_2m,relative_humidity_2m,weather_code"
+    url = "https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code"
     async with httpx.AsyncClient() as client:
         response = await client.get(url)
     return response.json()
@@ -29,9 +29,12 @@ if st.button("現在の東京の天気を取得", type="primary"):
     c = data["current"]
     temp = c["temperature_2m"]
     humidity = c["relative_humidity_2m"]
+    precipitation_probability = c["precipitation_probability"]
     code = c["weather_code"]
     
-    # 表示
+    # 
+    st.write(f"### 天気: {WEATHER_CODE_MAP.get(code, '不明')}")
     st.write(f"### 気温: {temp}℃")
     st.write(f"### 湿度: {humidity}%")
-    st.write(f"### 天気: {WEATHER_CODE_MAP.get(code, '不明')}")
+    st.write(f"### 降水確率: {precipitation_probability}%")
+    
