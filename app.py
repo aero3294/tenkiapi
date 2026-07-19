@@ -20,7 +20,7 @@ async def get_weather_data():
     return response.json()
 
 # ボタンを押したら天気を表示
-if st.button("現在の東京の天気を取得"):
+if st.button("現在の東京の天気を取得", type="primary"):
     # 非同期処理を実行
     data = asyncio.run(get_weather_data())
     
@@ -32,3 +32,5 @@ if st.button("現在の東京の天気を取得"):
     
     st.write(f"### 気温: {temp}℃")
     st.write(f"### 天気: {weather_text}")
+    st.write(f"### 降水確率: {c['precipitation_probability']}%")
+    st.write(f"### 湿度: {c['relative_humidity_2m']}%")
