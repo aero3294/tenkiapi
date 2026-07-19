@@ -14,7 +14,7 @@ st.title("東京の天気予報 🌤️")
 
 # 天気取得処理
 async def get_weather_data():
-    open_meteo_url = "https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&current=temperature_2m,weather_code"
+    open_meteo_url = "https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&current=temperature_2m,relative_humidity_2m,weather_code"
     async with httpx.AsyncClient() as client:
         response = await client.get(open_meteo_url)
     return response.json()
