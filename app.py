@@ -32,6 +32,6 @@ if st.button("現在の東京の天気を取得", type="primary"):
     code = c["weather_code"]
     
     # 表示
-    st.write(f"### 🌡️ 気温: {temp}℃")
-    st.write(f"### 💧 湿度: {humidity}%")
-    st.write(f"### ☁️ 天気: {WEATHER_CODE_MAP.get(code, '不明')}")
+    st.write(f"### 気温: {temp}℃")
+    st.write(f"### 湿度: {humidity}%")
+    st.write(f"### 天気: {WEATHER_CODE_MAP.get(code, '不明')}")
