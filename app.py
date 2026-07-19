@@ -10,7 +10,7 @@ WEATHER_CODE_MAP = {
     71: "弱い雪 ❄️", 73: "普通の雪 ❄️", 75: "強い雪 ❄️", 95: "雷雨 ⚡"
 }
 
-st.title("東京の天気予報 🌤️")
+st.title("東京の天気予報 ☀️")
 
 # APIからデータを取得する関数
 async def get_weather_data():
